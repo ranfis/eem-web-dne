@@ -5,8 +5,8 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/eem-dev'
+    uri: 'mongodb://admin:1234@ds041851.mongolab.com:41851/dne1'
   },
 
-  seedDB: true
+  seedDB: false
 };
