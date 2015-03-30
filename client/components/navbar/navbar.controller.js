@@ -3,8 +3,8 @@
 angular.module('eemApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
+      'title': 'EEM',
+      'link': '/ofertas'
     }];
 
     $scope.isCollapsed = true;

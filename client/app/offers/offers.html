@@ -1,0 +1,31 @@
+<div class="panel panel-default col-md-12">
+  <form>
+    <div class="form-group">
+      <label for="txtTitle">Encabezado de la oferta</label>
+      <input type="text" class="form-control" id="txtTitle" placeholder="Editar encabezado">
+    </div>
+    <div class="form-group">
+      <label for="txtTitle">Fecha de vencimiento</label>
+        <input type='text' class="form-control" id="txtExpirationDate" placeholder="Editar fecha de vencimiento"/>
+    </div>
+    <div class="form-group">
+      <label for="txtDescription">Detalles de la oferta</label>
+      <textarea class="form-control" id="txtDescription" placeholder="Editar detalles."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="picture">Imagen de la oferta (Opcional)</label>
+      <input type="file" id="picture">
+      <p class="help-block">Una imagen.</p>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Publicar
+      </label>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+</div>
+
+<script>
+  $('#txtExpirationDate').datetimepicker();
+</script>
