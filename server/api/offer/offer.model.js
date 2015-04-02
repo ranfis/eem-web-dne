@@ -4,8 +4,14 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var OfferSchema = new Schema({
-  name: String,
-  info: String,
+  id: Number,
+  title: String,
+  details: String,
+  type: Number, // I.e 2x1, limited time, etc.
+  store: Number,
+  mall:Number,
+  category: Number, // I.e Shoes, Women's clothes, Food, etc.
+  expirationDate: Date,
   active: Boolean
 });
 
