@@ -1,46 +1,61 @@
-<div class="panel panel-default col-md-12">
-  <form class="offer-form" ng-submit="addOffer()" name="offerForm">
-    <div class="form-group">
-      <label for="txtTitle">Encabezado de la oferta</label>
-      <input type="text" class="form-control" id="txtTitle" placeholder="Editar encabezado" value="{{newOffer.title}}" ng-model="newOffer.title" required="required">
-    </div>
-    <div class="form-group">
-      <label for="txtTitle">Fecha de vencimiento</label>
-        <input type='text' class="form-control" id="txtExpirationDate" placeholder="Editar fecha de vencimiento" value="{{newOffer.expirationDate}}" ng-model="newOffer.expirationDate"/>
-    </div>
-    <div class="form-group">
-      <label for="txtDetails">Detalles de la oferta</label>
-      <textarea class="form-control" id="txtDetails" placeholder="Editar detalles." ng-model="newOffer.details">{{newOffer.details}}</textarea>
-    </div>
-    <div class="form-group">
-      <label for="picture">Imagen de la oferta (Opcional)</label>
-      <input type="file" id="picture">
-      <p class="help-block">Una imagen.</p>
-    </div>
+<header id="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default col-md-12">
+          <form class="offer-form" ng-submit="addOffer()" name="offerForm">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Encabezado de la oferta</label>
+              <input type="text" class="form-control" id="txtTitle" placeholder="Editar encabezado de la oferta"
+                     data-validation-required-message="Por favor introduce el encabezado de la oferta."
+                     value="{{newOffer.title}}" ng-model="newOffer.title" required="required">
 
-    <div class="form-group">
-      <label for="txtType">Tipo de oferta (Opcional)</label>
-      <select class="form-control" id="txtType" ng-model="newOffer.type" ng-options="type.id as type.description for type in types"></select>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Detalles de la oferta</label>
+      <textarea class="form-control" id="txtDetails" placeholder="Editar detalles de la oferta"
+                data-validation-required-message="Por favor introduce detalles de la oferta"
+                ng-model="newOffer.details" required="required">{{newOffer.details}}</textarea>
+            </div>
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Fecha de vencimiento</label>
+              <input type='text' class="form-control" id="txtExpirationDate2" placeholder="Editar fecha de vencimiento"
+                     value="{{newOffer.expirationDate}}" ng-model="newOffer.expirationDate"/>
+
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Imagen de la oferta (Opcional)</label>
+              <input type='text' class="form-control" id="txtImage" placeholder="URL de la imagen"
+                     value="{{newOffer.image}}" ng-model="newOffer.image"/>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group col-xs-12 controls">
+              <label>Tipo de oferta (Opcional)</label>
+              <select class="form-control" id="txtType" ng-model="newOffer.type"
+                      ng-options="type.id as type.description for type in types"></select>
+            </div>
+            <div class="form-group col-xs-12 controls">
+              <label>Centro Comercial</label>
+              <select class="form-control" id="txtMall" ng-model="newOffer.mall"
+                      ng-options="mall.id as mall.name for mall in malls"></select>
+            </div>
+            <div class="form-group col-xs-12 controls">
+              <input type="checkbox" ng-model="newOffer.active" class="form-control toggleCheckbox" checked>
+            </div>
+            <button type="submit" class="btn btn-success" type="submit" ng-disabled="offerForm.$invalid" value="Post">Guardar</button>
+          </form>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="txtCategory">Categoria (Opcional)</label>
-      <select class="form-control" id="txtCategory" ng-model="newOffer.category" ng-options="category.id as category.description for category in categories"></select>
-    </div>
-
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="newOffer.active"> Publicar
-      </label>
-    </div>
-
-
-
-
-    <button type="submit" class="btn btn-success" type="submit" ng-disabled="offerForm.$invalid" value="Post">Guardar</button>
-  </form>
-</div>
+  </div>
+</header>
 
 <script>
-  $('#txtExpirationDate').datetimepicker();
+  $('#datetimepicker1').datetimepicker();
+  $(".toggleCheckbox").bootstrapSwitch({
+    onText: "Publicar",
+    offText: "Ocultar"
+  });
 </script>

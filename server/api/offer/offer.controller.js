@@ -22,7 +22,10 @@ exports.show = function(req, res) {
 
 // Creates a new offer in the DB.
 exports.create = function(req, res) {
-  Offer.create(req.body, function(err, offer) {
+
+  var offer = new Offer(_.merge({ store: {id:req.user._id} }, req.body));
+  console.log(offer);
+  offer.save(req.body, function(err, offer) {
     if(err) { return handleError(res, err); }
     return res.json(201, offer);
   });

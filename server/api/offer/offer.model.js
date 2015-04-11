@@ -8,9 +8,13 @@ var OfferSchema = new Schema({
   title: String,
   details: String,
   type: Number, // I.e 2x1, limited time, etc.
-  store: Number,
+  store: {
+    id: Number,
+    name: String
+  },
+  image:String,
   mall:Number,
-  category: Number, // I.e Shoes, Women's clothes, Food, etc.
+  categories: [Number], // I.e Shoes, Women's clothes, Food, etc.
   expirationDate: Date,
   active: Boolean
 });
