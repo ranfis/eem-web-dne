@@ -37,29 +37,3 @@
     color: #000;
     padding: 0.2em 0;
 }
-
-
-.navbar {
-  background-color: #F2D27E;
-}
-
-.navbar-default .navbar-nav>.active>a{
-  background-color: #EFC75E;
-}
-
-.navbar-default .navbar-nav>.active>a:focus{
-  background-color: #EFC75E;
-}
-
-.navbar-default .navbar-nav>a:hover{
-  background-color: #EFC75E;
-}
-
-
-.navbar-default .navbar-nav>.active>a:hover{
-  background-color: #EFC75E;
-}
-
-#main{
-  padding-top: 64px;
-}
