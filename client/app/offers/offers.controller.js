@@ -18,6 +18,7 @@ angular.module('eemApp')
       socket.syncUpdates('type', $scope.types);
     });
     $http.get('/api/malls').success(function(malls) {
+      console.log(malls);
       $scope.malls = malls;
       socket.syncUpdates('mall', $scope.malls);
     });
@@ -29,9 +30,8 @@ angular.module('eemApp')
     $scope.addOffer = function() {
       var expirationDate = $("#txtExpirationDate").val();//TODO: This is a bug. Fix ASAP. PD: Blame bootstrap-datetimepicker
       var realDate = new Date(expirationDate);
-      var active = $("#chkActive").data().bootstrapSwitch.state();
+      //var active = $("#chkActive").data().bootstrapSwitch.state();
       $scope.newOffer.expirationDate = realDate;
-      $scope.newOffer.active = active;
       console.log($scope.newOffer);
       $http.post('/api/offers', $scope.newOffer);
       $scope.newOffer = {};

@@ -3,12 +3,48 @@
 var _ = require('lodash');
 var Offer = require('./offer.model');
 
+
+var findByLocation = function(lon,lat,distance,onError){
+  if(!distance){
+    distance = 0;
+  }
+  lon = +lon;
+  lat = +lat;
+  distance = +distance;
+  var filter ={
+    "mall.location": {
+      "$near": {
+        "$geometry": {
+          "type": "Point",
+          "coordinates": [
+            lon,
+            lat
+          ]
+        },
+        "$maxDistance": distance
+      }
+    }
+  }
+
+  Offer.find(filter,onError);
+}
+
 // Get list of offers
 exports.index = function(req, res) {
-  Offer.find(function (err, offers) {
+  var lon = req.param("lon");
+  var lat = req.param("lat");
+  var distance = req.param("distance");
+  var onError = function (err, offers) {
     if(err) { return handleError(res, err); }
     return res.json(200, offers);
-  });
+  };
+
+  if(lon && lat){
+    findByLocation(lon,lat,distance,onError);
+  }
+  else{
+    Offer.find(onError);
+  }
 };
 
 // Get a single offer

@@ -7,10 +7,7 @@ var MallSchema = new Schema({
   id: Number,
   name: String,
   address:String,
-  location: {
-    latitude: Number,
-    longitude: Number
-  }
+  location: {}
 });
 
 module.exports = mongoose.model('Mall', MallSchema);
