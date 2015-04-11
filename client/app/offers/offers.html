@@ -29,6 +29,7 @@
               <label>Imagen de la oferta (Opcional)</label>
               <input type='text' class="form-control" id="txtImage" placeholder="URL de la imagen"
                      value="{{newOffer.image}}" ng-model="newOffer.image"/>
+
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group col-xs-12 controls">
@@ -38,13 +39,29 @@
             </div>
             <div class="form-group col-xs-12 controls">
               <label>Centro Comercial</label>
-              <select class="form-control" id="txtMall" ng-model="newOffer.mall"
-                      ng-options="mall.id as mall.name for mall in malls"></select>
+              <select class="form-control" id="txtMall"
+                      ng-options="mall as mall.name for mall in malls track by mall._id"
+                      ng-model="newOffer.mall" required="required"></select>
+
             </div>
             <div class="form-group col-xs-12 controls">
-              <input type="checkbox" ng-model="newOffer.active" class="form-control toggleCheckbox" checked>
+              <input id="chkActive" type="checkbox" class="form-control" checked>
             </div>
-            <button type="submit" class="btn btn-success" type="submit" ng-disabled="offerForm.$invalid" value="Post">Guardar</button>
+
+            <!-- Note the missing multiple attribute! -->
+            <select
+              class="form-control"
+              id="categories"
+              multiple="multiple"
+              ng-model="newOffer.type"
+              ng-options="type.id as type.description for type in types">
+            </select>
+
+
+
+            <button type="submit" class="btn btn-success" type="submit" ng-disabled="offerForm.$invalid" value="Post">
+              Guardar
+            </button>
           </form>
         </div>
       </div>
@@ -53,7 +70,8 @@
 </header>
 
 <script>
-  $(".toggleCheckbox").bootstrapSwitch({
+//  $('#categories').multiselect();
+  $("#chkActive").bootstrapSwitch({
     onText: "Publicar",
     offText: "Ocultar"
   });

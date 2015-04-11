@@ -12,7 +12,9 @@ angular.module('eemApp')
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          phone: $scope.user.phone,
+          password: $scope.user.password,
+          aproved:false
         })
         .then( function() {
           // Account created, redirect to home
