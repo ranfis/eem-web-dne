@@ -87,10 +87,14 @@
             </div>
 
 
-            <div class="form-group col-xs-12 controls">
-              <label>Publicar</label>
+            <div class="form-group">
+              <!--<label>Publicar</label>-->
               <input
                 id="chkActive"
+                bs-switch=""
+                switch-size="large"
+                switch-on-text="&nbsp;Publicar&nbsp;"
+                switch-off-text="&nbsp;Ocultar&nbsp;"
                 type="checkbox"
                 ng-model="newOffer.active">
             </div>
@@ -112,8 +116,8 @@
 
 <script>
 //  $('#categories').multiselect();
-  $("#chkActive").bootstrapSwitch({
-    onText: "Publicar",
-    offText: "Ocultar"
-  });
+//  $("#chkActive").bootstrapSwitch({
+//    onText: "Publicar",
+//    offText: "Ocultar"
+//  });
 </script>
