@@ -1,21 +1,9 @@
 'use strict';
 
 angular.module('eemApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
-    });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    $scope.isLoggedIn = Auth.isLoggedIn;
 
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);

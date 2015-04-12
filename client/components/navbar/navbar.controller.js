@@ -9,6 +9,7 @@ angular.module('eemApp')
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isInOffersPage = false;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 

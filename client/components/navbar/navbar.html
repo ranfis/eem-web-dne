@@ -9,17 +9,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#page-top"><img class="img-responsive" width="48px" src="assets/images/logo.svg" alt="EnElMall.do"></a>
+      <a class="navbar-brand" href="/#page-top"><img class="img-responsive" width="100px" src="assets/images/eem_logo.png" alt="EnElMall.do"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Registra tu tienda</a></li>
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Incia sesion</a></li>
+        <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
           <a href="#"></a>
         </li>
-        <li class="page-scroll">
-          <a href="#page-top">Publicar oferta</a>
+        <li ng-show="isLoggedIn()" class="page-scroll">
+          <a href="/ofertas">Publicar oferta</a>
         </li>
         <li class="page-scroll">
           <a href="#contact">Contactanos</a>
@@ -33,5 +40,3 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
-<script src="assets/js/classie.js"></script>
-<!--<script src="assets/js/cbpAnimatedHeader.js"></script>-->

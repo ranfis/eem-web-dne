@@ -18,7 +18,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(client) app/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/theme/bootstrap.min.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
   <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
@@ -26,12 +26,17 @@
   <!-- endbuild -->
   <!-- build:css({.tmp,client}) app/app.css -->
   <link rel="stylesheet" href="assets/theme/freelancer.css"/>
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <!-- injector:css -->
   <link rel="stylesheet" href="app/account/login/login.css">
   <link rel="stylesheet" href="app/admin/admin.css">
   <link rel="stylesheet" href="app/app.css">
   <link rel="stylesheet" href="app/main/main.css">
   <link rel="stylesheet" href="app/offers/offers.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="components/modal/modal.css">
   <!-- endinjector -->
   <!-- endbuild -->
@@ -56,6 +61,7 @@
 <!-- build:js({client,node_modules}) app/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -95,6 +101,11 @@
 <!-- endinjector -->
 <!-- endbuild -->
 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="assets/js/classie.js"></script>
+<!--<script src="assets/js/cbpAnimatedHeader.min.js"></script>-->
+<script src="assets/js/jqBootstrapValidation.js"></script>
+<script src="assets/js/freelancer.js"></script>
 
 </body>
 </html>
