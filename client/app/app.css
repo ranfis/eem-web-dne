@@ -38,4 +38,11 @@
     padding: 0.2em 0;
 }
 
-
+.checkbox.no-indent,
+.checkbox.no-indent+.checkbox.no-indent {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.checkbox.no-indent:last-child {
+  margin-right: 0;
+}

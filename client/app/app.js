@@ -7,7 +7,8 @@ angular.module('eemApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'frapontillo.bootstrap-switch'
+  'frapontillo.bootstrap-switch',
+  'checklist-model'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
