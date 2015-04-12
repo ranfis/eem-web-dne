@@ -5,7 +5,9 @@ angular.module('eemApp')
     $scope.newOffer = {
       title: "Title",
       details:"Details",
+      active:true,
       image:"aaa.jpg",
+      mall:{_id:"5516d716e4b06f03910e913a",name:"Agora"},
       expirationDate: "2/2/2",
       type:2
     };
@@ -18,7 +20,6 @@ angular.module('eemApp')
       socket.syncUpdates('type', $scope.types);
     });
     $http.get('/api/malls').success(function(malls) {
-      console.log(malls);
       $scope.malls = malls;
       socket.syncUpdates('mall', $scope.malls);
     });

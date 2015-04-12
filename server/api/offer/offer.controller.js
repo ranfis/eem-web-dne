@@ -2,9 +2,10 @@
 
 var _ = require('lodash');
 var Offer = require('./offer.model');
+var Store = require('../store/store.model');
 
 
-var findByLocation = function(lon,lat,distance,onError){
+var findByLocation = function(lon,lat,distance,callback){
   if(!distance){
     distance = 0;
   }
@@ -26,7 +27,7 @@ var findByLocation = function(lon,lat,distance,onError){
     }
   }
 
-  Offer.find(filter,onError);
+  Offer.find(filter,callback);
 }
 
 // Get list of offers
@@ -34,16 +35,16 @@ exports.index = function(req, res) {
   var lon = req.param("lon");
   var lat = req.param("lat");
   var distance = req.param("distance");
-  var onError = function (err, offers) {
+  var callback = function (err, offers) {
     if(err) { return handleError(res, err); }
     return res.json(200, offers);
   };
 
   if(lon && lat){
-    findByLocation(lon,lat,distance,onError);
+    findByLocation(lon,lat,distance,callback);
   }
   else{
-    Offer.find(onError);
+    Offer.find(callback);
   }
 };
 
@@ -58,10 +59,17 @@ exports.show = function(req, res) {
 
 // Creates a new offer in the DB.
 exports.create = function(req, res) {
-  Offer.create(req.body, function(err, offer) {
-    if(err) { return handleError(res, err); }
-    return res.json(201, offer);
+  var user = req.user;
+  var store = Store.findById(user.storeId, function (err, store) {
+    req.body.store = store;
+    Offer.create(req.body, function(err, offer) {
+      if(err) { return handleError(res, err); }
+      return res.json(201, offer);
+    });
   });
+
+
+
 };
 
 // Updates an existing offer in the DB.

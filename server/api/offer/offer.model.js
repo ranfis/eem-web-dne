@@ -8,7 +8,7 @@ var OfferSchema = new Schema({
   title: String,
   details: String,
   type: Number, // I.e 2x1, limited time, etc.
-  store: Number,
+  store: Schema.Types.Mixed,
   mall:Schema.Types.Mixed,
   categories: [Number], // I.e Shoes, Women's clothes, Food, etc.
   expirationDate: Date,

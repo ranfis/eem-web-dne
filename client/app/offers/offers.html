@@ -82,7 +82,7 @@
                 id="categories"
                 ng-options="category.id as category.description for category in categories"
                 ng-model="newOffer.categories"
-                required="required">
+                >
               </select>
             </div>
 
@@ -92,13 +92,12 @@
               <input
                 id="chkActive"
                 type="checkbox"
-                ng-model="newOffer.active"
-                >
+                ng-model="newOffer.active">
             </div>
 
             <button
               type="submit"
-              class="btn btn-success"
+              class="btn btn-success btn-lg"
               type="submit"
               ng-disabled="offerForm.$invalid"
               value="Post">
@@ -113,8 +112,8 @@
 
 <script>
 //  $('#categories').multiselect();
-//  $("#chkActive").bootstrapSwitch({
-//    onText: "Publicar",
-//    offText: "Ocultar"
-//  });
+  $("#chkActive").bootstrapSwitch({
+    onText: "Publicar",
+    offText: "Ocultar"
+  });
 </script>
