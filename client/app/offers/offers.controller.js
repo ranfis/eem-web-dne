@@ -8,7 +8,7 @@ angular.module('eemApp')
       active:true,
       image:"aaa.jpg",
       mall:{_id:"5516d716e4b06f03910e913a",name:"Agora"},
-      expirationDate: "2/2/2",
+      expirationDate: moment("2015-04-30T05:01:00.000Z").locale("es").format("MMMM D YYYY, h:mm:ss A"),
       type:2
     };
     $scope.types = [];

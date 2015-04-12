@@ -31,12 +31,13 @@
               </textarea>
             </div>
 
-            <div class="form-group col-xs-12 floating-label-form-group controls">
+            <div class="form-group col-xs-12 floating-label-form-group controls datepicker">
               <label>Fecha de vencimiento</label>
               <input
                 type='text'
                 class="form-control"
-                id="txtExpirationDate2"
+                id="txtExpirationDate"
+                format="MM/dd/YYYY"
                 placeholder="Editar fecha de vencimiento"
                 value="{{newOffer.expirationDate}}"
                 ng-model="newOffer.expirationDate"/>
@@ -115,6 +116,10 @@
 </header>
 
 <script>
+  $('#txtExpirationDate').datetimepicker({
+    format:"MMMM D YYYY, h:mm:ss A",
+    locale:"ES"
+  });
 //  $('#categories').multiselect();
 //  $("#chkActive").bootstrapSwitch({
 //    onText: "Publicar",
