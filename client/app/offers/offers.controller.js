@@ -2,6 +2,8 @@
 
 angular.module('eemApp')
   .controller('OffersCtrl', function ($scope, $http, socket) {
+    $scope.offers = [];
+
     $scope.newOffer = {
       title: "",
       details:"",
@@ -24,6 +26,12 @@ angular.module('eemApp')
     $scope.categories = [];
     $scope.malls = [];
 
+    $http.get('/api/offers').success(function(offers) {
+      $scope.offers = offers;
+
+      console.log(offers);
+      socket.syncUpdates('offers', $scope.offers);
+    });
     $http.get('/api/types').success(function(types) {
       $scope.types = types;
       socket.syncUpdates('type', $scope.types);
@@ -45,5 +53,13 @@ angular.module('eemApp')
       console.log($scope.newOffer);
       $http.post('/api/offers', $scope.newOffer);
       $scope.newOffer = {};
+    };
+    $scope.removeOffer = function(id) {
+      var sure = confirm("Yo sure?"+id);
+      if(sure){
+        $http.delete('/api/offers/'+id);
+        socket.syncUpdates('offers', $scope.offers);
+      }
+
     };
   });

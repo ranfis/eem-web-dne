@@ -8,7 +8,8 @@ angular.module('eemApp', [
   'ui.router',
   'ui.bootstrap',
   'frapontillo.bootstrap-switch',
-  'checklist-model'
+  'checklist-model',
+  'smart-table'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

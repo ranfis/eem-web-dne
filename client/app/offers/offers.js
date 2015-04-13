@@ -5,7 +5,12 @@ angular.module('eemApp')
     $stateProvider
       .state('offers', {
         url: '/ofertas',
-        templateUrl: 'app/offers/offers.html',
+        templateUrl: 'app/offers/newOffer.html',
+        controller: 'OffersCtrl'
+      })
+      .state('offer', {
+        url: '/ofertas/agregar',
+        templateUrl: 'app/offers/newOffer.html',
         controller: 'OffersCtrl'
       });
   });

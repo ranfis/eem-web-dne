@@ -2,128 +2,35 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="panel panel-default col-md-12">
-          <div class="col-sm-12">
-            <h1>Publica una oferta</h1>
+
+
+
+
+
+        <div ng-repeat="offer in offers" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title" contenteditable="true">{{offer.title}}</h3>
           </div>
-          <form class="offer-form" ng-submit="addOffer()" name="offerForm">
-
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label>Encabezado de la oferta</label>
-              <input
-                type="text"
-                class="form-control"
-                id="txtTitle"
-                placeholder="Editar encabezado de la oferta"
-                data-validation-required-message="Por favor introduce el encabezado de la oferta."
-                value="{{newOffer.title}}"
-                ng-model="newOffer.title"
-                required="required"/>
+          <div class="panel-body" contenteditable="true">
+            {{offer.details}}
+          </div>
+          <div class="panel-footer" contenteditable="true">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-info" ><span class="glyphicon glyphicon glyphicon-pencil"></span></button>
+              <button type="button" class="btn btn-danger" ng-click="removeOffer(offer._id)"><span class="glyphicon glyphicon glyphicon-remove"></span></button>
             </div>
-
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label>Detalles de la oferta</label>
-              <textarea
-                class="form-control"
-                id="txtDetails"
-                placeholder="Editar detalles de la oferta"
-                data-validation-required-message="Por favor introduce detalles de la oferta"
-                ng-model="newOffer.details"
-                required="required">
-                {{newOffer.details}}
-              </textarea>
-            </div>
-
-            <div class="form-group col-xs-12 floating-label-form-group controls datepicker">
-              <label>Fecha de vencimiento</label>
-              <input
-                type='text'
-                class="form-control"
-                id="txtExpirationDate"
-                format="MM/dd/YYYY"
-                placeholder="Editar fecha de vencimiento"
-                value="{{newOffer.expirationDate}}"
-                ng-model="newOffer.expirationDate"/>
-            </div>
-
-            <div class="form-group col-xs-12 floating-label-form-group controls">
-              <label>Imagen de la oferta (Opcional)</label>
-              <input
-                type='text'
-                class="form-control"
-                id="txtImage"
-                placeholder="URL de la imagen"
-                value="{{newOffer.image}}"
-                ng-model="newOffer.image"/>
-            </div>
-
-            <div class="form-group col-xs-12 controls">
-              <label>Tipo de oferta</label>
-              <div ng-repeat="type in types" class="radio">
-                <input type="radio" ng-model="newOffer.type" ng-value="type.id" name="type" id="type-{{type.id}}">
-                <label for="type-{{type.id}}">{{type.description}}</label>
-              </div>
-            </div>
-
-
-
-            <div class="form-group col-xs-12 controls">
-              <label>Centro Comercial</label>
-              <div ng-repeat="mall in malls" class="radio">
-                <input type="radio" ng-model="newOffer.mall" ng-value="mall" name="mall" id="mall-{{mall.id}}">
-                <label for="mall-{{mall.id}}">{{mall.name}}</label>
-              </div>
-            </div>
-
-            <div class="form-group col-xs-12 controls">
-              <label>Clasifica esta oferta:</label>
-              </br>
-              <div ng-repeat="category in categories" class="checkbox checkbox-inline no-indent">
-                <input
-                  type="checkbox"
-                  checklist-model="newOffer.categories"
-                  id="category-{{category.id}}"
-                  checklist-value="category.id">
-                <label for="category-{{category.id}}">{{category.description}}</label>
-              </div>
-            </div>
-
-            <div class="form-group col-xs-12 controls">
-              <label>Hacer publica: </label><br>
-              <input
-                id="chkActive"
-                bs-switch=""
-                switch-size="large"
-                switch-on-text="SI"
-                switch-off-text="NO"
-                type="checkbox"
-                ng-model="newOffer.active">
-            </div>
-            <div class="form-group col-xs-12 controls col-lg-offset-5">
-            <button
-              type="submit"
-              class="btn btn-success btn-lg"
-              type="submit"
-              ng-disabled="offerForm.$invalid"
-              value="Post">
-              Guardar
-            </button>
-              </div>
-          </form>
+          </div>
         </div>
+
+
+
+
+
       </div>
     </div>
   </div>
 </header>
 
-<script>
-  $('#txtExpirationDate').datetimepicker({
-    format:"MMMM D YYYY, h:mm:ss A",
-    locale:"ES"
-  });
-//  $('#categories').multiselect();
-//  $("#chkActive").bootstrapSwitch({
-//    onText: "Publicar",
-//    offText: "Ocultar"
-//  });
-</script>
+
+
+
