@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-group col-xs-12 controls">
-              <label>Tipo de oferta (Opcional)</label>
+              <label>Tipo de oferta</label>
               <div ng-repeat="type in types" class="radio">
                 <input type="radio" ng-model="newOffer.type" ng-value="type.id" name="type" id="type-{{type.id}}">
                 <label for="type-{{type.id}}">{{type.description}}</label>

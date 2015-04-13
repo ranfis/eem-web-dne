@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var OfferSchema = new Schema({
   id: Number,
   title: String,
+  image: String,
   details: String,
   type: Number, // I.e 2x1, limited time, etc.
   store: Schema.Types.Mixed,
